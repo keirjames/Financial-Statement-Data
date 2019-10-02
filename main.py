@@ -6,3 +6,6 @@ index_urls_dict = {'SPX': ['https://en.wikipedia.org/wiki/List_of_S%26P_500_comp
                    'DJI': ['https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average', 2],
                    'NDAQ': ['https://en.wikipedia.org/wiki/NASDAQ-100#Components', 1]}
 
+
+# 1 Scrape tickers for all stock indexes in the index_urls_dict
+tickers = ticker_scrape.fetch_all_tickers(index_urls_dict)
