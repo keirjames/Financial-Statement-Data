@@ -1,2 +1,2 @@
-# HistoricalFinancialStatementData
-Accessing API to download &amp; parse historical financial statement data for major US companies.
+# Generating Historical Financial Statement Data
+Accessing API to download & parse historical financial statement data for major US companies.
