@@ -1,5 +1,6 @@
 import ticker_scrape
 import ticker_api
+import get_ftype_data
 
 # FOR TICKER_SCRAPE: Index List Info Dictionary (key = index ticker) (values = [index_urls_dict, ticker_col in table])
 index_urls_dict = {'SPX': ['https://en.wikipedia.org/wiki/List_of_S%26P_500_companies', 0],
@@ -18,7 +19,14 @@ tickers_api = ticker_api.Tickers(include_stock_names=False).generate_tickers()['
 tickers_scrape_indexes = ticker_scrape.fetch_all_tickers(index_urls_dict)
 
 # 1.3 Generate a list of the tickers that intersect both the tickers_api & tickers_scrape_indexes
-tickers = list(set(tickers_scrape_indexes).intersection(ticker_api))
+tickers = list(set(tickers_scrape_indexes).intersection(tickers_api))
+
+# 2 <-- GENERATE TICKERS -->
+# 2.1 Generate DataFrames for each Financial Statement Type for All Years
+income_statement_df = get_ftype_data.DataFrameGenerator(tickers, financialtypes[0]).gen_dataframe()
+balance_sheet_df = get_ftype_data.DataFrameGenerator(tickers, financialtypes[1]).gen_dataframe()
+cash_flow_df = get_ftype_data.DataFrameGenerator(tickers, financialtypes[2]).gen_dataframe()
+
 
 
 
