@@ -17,4 +17,8 @@ tickers_api = ticker_api.Tickers(include_stock_names=False).generate_tickers()['
 # 1.2 Generate a list of tickers scraped from US Stock Indexes in the index_urls_dict
 tickers_scrape_indexes = ticker_scrape.fetch_all_tickers(index_urls_dict)
 
+# 1.3 Generate a list of the tickers that intersect both the tickers_api & tickers_scrape_indexes
+tickers = list(set(tickers_scrape_indexes).intersection(ticker_api))
+
+
 
