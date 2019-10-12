@@ -119,10 +119,10 @@ class DataFrameGenerator(FinancialStatementData):
         for index, ticker in enumerate(self.tickers):
             try:
                 df_list.append(FinancialStatementData(ticker, self.ftype).ftype_multiyear_df())
-                print(f'{index} SUCCESS - TICKER DATA EXISTS.')
+                print(f'{self.ftype} {index} - SUCCESS - TICKER DATA EXISTS.')
                 time.sleep(0.5)
             except:
-                print(f'{index} FAILURE - LIKELY BAD DATA - Replaced with DataFrame containing NaNs!')
+                print(f'{self.ftype} {index} - FAILURE - LIKELY BAD DATA - Replaced with DataFrame containing NaNs!')
                 df_list.append(pd.DataFrame(data=np.nan, index=self.years, columns=df_list[index - 1].columns))
 
         # Combine all the DataFrames in the list to form a MASTER DataFrame for the specified financial type
