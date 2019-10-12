@@ -27,6 +27,8 @@ income_statement_df = get_ftype_data.DataFrameGenerator(tickers, financialtypes[
 balance_sheet_df = get_ftype_data.DataFrameGenerator(tickers, financialtypes[1]).gen_dataframe()
 cash_flow_df = get_ftype_data.DataFrameGenerator(tickers, financialtypes[2]).gen_dataframe()
 
-
-
-
+# 3 <-- SAVE DATA -->
+# 3.1 DataFrame -> CSV
+income_statement_df.to_csv('all_income_statement_df.csv')
+balance_sheet_df.to_csv('all_balance_sheet_df.csv')
+cash_flow_df.to_csv('all_cash_flow_df.csv')
